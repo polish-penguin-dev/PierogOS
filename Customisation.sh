@@ -37,7 +37,7 @@ wget https://github.com/polish-penguin-dev/PierogOS/raw/refs/heads/main/Assets/B
 override_file="/usr/share/glib-2.0/schemas/pierogos-wallpaper.gschema.override"
 
 echo "[org.gnome.desktop.background]" > $override_file
-echo "picture-uri = 'file:///usr/share/backgrounds/pierogos/PierogOS_BG1.png'" >> $override_file
+echo "picture-uri = 'file:///usr/share/backgrounds/pierogos/PierogOS_BG2.png'" >> $override_file
 echo "picture-options = 'zoom'" >> $override_file
 
 glib-compile-schemas /usr/share/glib-2.0/schemas/
