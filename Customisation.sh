@@ -11,11 +11,26 @@ Contents
 5. Icon Customisation
 "
 
-echo -e "\033[0;32m[INFO]\033[0m Installing Wget..."
-sudo apt install wget -y
+echo -e "\033[0;32m[INFO]\033[0m Installing Required Dependencies..."
+apt install wget p7zip-full -y
 
 #Customise Plymouth
-#echo -e "\033[0;32m[INFO]\033[0m Beginning Plymouth Customisation..."
+echo -e "\033[0;32m[INFO]\033[0m Beginning Plymouth Customisation..."
+wget https://github.com/polish-penguin-dev/PierogOS/raw/refs/heads/main/Assets/Plymouth/Cantarell-Regular.ttf
+wget https://github.com/polish-penguin-dev/PierogOS/raw/refs/heads/main/Assets/Plymouth/pierogos-plymouth.7z
+
+mv Cantarell-Regular.ttf /usr/share/fonts
+7z x pierogos-plymouth.7z -o./pierogos-plymouth
+rm pierogos-plymouth.7z
+
+apt reinstall linux-headers-generic -y
+apt reinstall linux-image-generic -y
+
+mv ./pierogos-plymouth /usr/share/plymouth/themes/
+update-alternatives --install "/usr/share/plymouth/themes/default.plymouth" "default.plymouth" "/usr/share/plymouth/themes/pierogos-plymouth/logo-slider.plymouth" 160
+update-initramfs -uk all
+
+echo -e "\033[0;32m[INFO]\033[0m Completed Plymouth Customisation..."
 
 #Customise Ubiquity
 #echo -e "\033[0;32m[INFO]\033[0m Beginning Ubiquity Customisation..."
@@ -50,3 +65,4 @@ echo -e "\033[0;32m[INFO]\033[0m Completed Background Customisation..."
 #Customise Icons
 #echo -e "\033[0;32m[INFO]\033[0m Beginning Icon Customisation..."
 
+echo -e "\033[0;32m[DONE]\033[0m Ensure You Select The NEW/MODIFIED Kernel Afterwards!"
