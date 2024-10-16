@@ -12,6 +12,7 @@ Contents
 "
 
 echo -e "\033[0;32m[INFO]\033[0m Installing Required Dependencies..."
+apt update
 apt install wget p7zip-full -y
 
 #Customise Plymouth
