@@ -13,9 +13,9 @@ Contents
 
 echo -e "\033[0;32m[INFO]\033[0m Installing Required Dependencies..."
 apt update
-apt install wget p7zip-full -y
+apt install wget p7zip-full catimg -y
 
-#Customise Plymouth
+#Customise Plymouth (WIP)
 echo -e "\033[0;32m[INFO]\033[0m Beginning Plymouth Customisation..."
 wget https://github.com/polish-penguin-dev/PierogOS/raw/refs/heads/main/Assets/Plymouth/Cantarell-Regular.ttf
 wget https://github.com/polish-penguin-dev/PierogOS/raw/refs/heads/main/Assets/Plymouth/pierogos-plymouth.7z
@@ -23,9 +23,6 @@ wget https://github.com/polish-penguin-dev/PierogOS/raw/refs/heads/main/Assets/P
 mv Cantarell-Regular.ttf /usr/share/fonts
 7z x pierogos-plymouth.7z -o./pierogos-plymouth
 rm pierogos-plymouth.7z
-
-apt reinstall linux-headers-generic -y
-apt reinstall linux-image-generic -y
 
 mv ./pierogos-plymouth /usr/share/plymouth/themes/
 update-alternatives --install "/usr/share/plymouth/themes/default.plymouth" "default.plymouth" "/usr/share/plymouth/themes/pierogos-plymouth/logo-slider.plymouth" 300
@@ -61,7 +58,8 @@ glib-compile-schemas /usr/share/glib-2.0/schemas/
 echo -e "\033[0;32m[INFO]\033[0m Completed Background Customisation..."
 
 #Customise Neofetch
-#echo -e "\033[0;32m[INFO]\033[0m Beginning Neofetch Customisation..."
+echo -e "\033[0;32m[INFO]\033[0m Beginning Neofetch Customisation...
+
 
 #Customise Icons
 #echo -e "\033[0;32m[INFO]\033[0m Beginning Icon Customisation..."
