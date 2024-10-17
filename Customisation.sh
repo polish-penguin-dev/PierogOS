@@ -16,19 +16,19 @@ apt update
 apt install wget p7zip-full catimg -y
 
 #Customise Plymouth (WIP)
-echo -e "\033[0;32m[INFO]\033[0m Beginning Plymouth Customisation..."
-wget https://github.com/polish-penguin-dev/PierogOS/raw/refs/heads/main/Assets/Plymouth/Cantarell-Regular.ttf
-wget https://github.com/polish-penguin-dev/PierogOS/raw/refs/heads/main/Assets/Plymouth/pierogos-plymouth.7z
+#echo -e "\033[0;32m[INFO]\033[0m Beginning Plymouth Customisation..."
+#wget https://github.com/polish-penguin-dev/PierogOS/raw/refs/heads/main/Assets/Plymouth/Cantarell-Regular.ttf
+#wget https://github.com/polish-penguin-dev/PierogOS/raw/refs/heads/main/Assets/Plymouth/pierogos-plymouth.7z
 
-mv Cantarell-Regular.ttf /usr/share/fonts
-7z x pierogos-plymouth.7z -o./pierogos-plymouth
-rm pierogos-plymouth.7z
+#mv Cantarell-Regular.ttf /usr/share/fonts
+#7z x pierogos-plymouth.7z -o./pierogos-plymouth
+#rm pierogos-plymouth.7z
 
-mv ./pierogos-plymouth /usr/share/plymouth/themes/
-update-alternatives --install "/usr/share/plymouth/themes/default.plymouth" "default.plymouth" "/usr/share/plymouth/themes/pierogos-plymouth/logo-slider.plymouth" 300
-update-initramfs -uk all
+#mv ./pierogos-plymouth /usr/share/plymouth/themes/
+#update-alternatives --install "/usr/share/plymouth/themes/default.plymouth" "default.plymouth" "/usr/share/plymouth/themes/pierogos-plymouth/logo-slider.plymouth" 300
+#update-initramfs -uk all
 
-echo -e "\033[0;32m[INFO]\033[0m Completed Plymouth Customisation..."
+#echo -e "\033[0;32m[INFO]\033[0m Completed Plymouth Customisation..."
 
 #Customise Ubiquity
 #echo -e "\033[0;32m[INFO]\033[0m Beginning Ubiquity Customisation..."
@@ -58,8 +58,13 @@ glib-compile-schemas /usr/share/glib-2.0/schemas/
 echo -e "\033[0;32m[INFO]\033[0m Completed Background Customisation..."
 
 #Customise Neofetch
-echo -e "\033[0;32m[INFO]\033[0m Beginning Neofetch Customisation...
+echo -e "\033[0;32m[INFO]\033[0m Beginning Neofetch Customisation..."
+wget -O /usr/local/bin/Neofetch.sh https://github.com/polish-penguin-dev/PierogOS/raw/refs/heads/main/Assets/Neofetch/Neofetch.sh
+wget -O /usr/local/bin/Pierog48.png https://raw.githubusercontent.com/polish-penguin-dev/PierogOS/refs/heads/main/Assets/Neofetch/Pierog48.png
 
+chmod +x /usr/local/bin/Neofetch.sh
+ln -sf /usr/local/bin/Neofetch.sh /usr/local/bin/neofetch
+echo -e "\033[0;32m[INFO]\033[0m Neofetch custom command is now set up!"
 
 #Customise Icons
 #echo -e "\033[0;32m[INFO]\033[0m Beginning Icon Customisation..."
