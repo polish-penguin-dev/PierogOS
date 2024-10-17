@@ -28,7 +28,7 @@ apt reinstall linux-headers-generic -y
 apt reinstall linux-image-generic -y
 
 mv ./pierogos-plymouth /usr/share/plymouth/themes/
-update-alternatives --install "/usr/share/plymouth/themes/default.plymouth" "default.plymouth" "/usr/share/plymouth/themes/pierogos-plymouth/logo-slider.plymouth" 160
+update-alternatives --install "/usr/share/plymouth/themes/default.plymouth" "default.plymouth" "/usr/share/plymouth/themes/pierogos-plymouth/logo-slider.plymouth" 300
 update-initramfs -uk all
 
 echo -e "\033[0;32m[INFO]\033[0m Completed Plymouth Customisation..."
